@@ -1,6 +1,3 @@
-Claro\! Aqui está um `README.md` completo e bem-estruturado para o seu aplicativo, gerado a partir do código fornecido. Ele está em formato Markdown, pronto para ser copiado e colado em um arquivo `README.md` no seu repositório.
-
----
 
 # ➕ Financeiro App
 
