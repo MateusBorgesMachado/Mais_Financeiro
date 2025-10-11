@@ -911,7 +911,7 @@ class BancoForm extends StatefulWidget {
 }
 
 class BancoFormScreenState extends State<BancoForm> {
-  final TextEditingController saldoController = TextEditingController();
+  final TextEditingController saldoController = TextEditingController(text: '');
   final formatter = NumberFormat.currency(locale: 'pt_BR', symbol: 'R\$');
 
   final _formKey = GlobalKey<FormState>();
@@ -921,10 +921,10 @@ class BancoFormScreenState extends State<BancoForm> {
     super.initState();
     saldoController.addListener(() {
       final text = saldoController.text.replaceAll(RegExp(r'[^0-9]'), '');
-      if (text.isEmpty) {
-        saldoController.text = '';
-        return;
-      }
+      // if (text.isEmpty) {
+      //   saldoController.text = '';
+      //   return;
+      // }
 
       final value = double.parse(text) / 100;
       final newText = formatter.format(value);
@@ -1149,7 +1149,7 @@ class TransacaoForm extends StatefulWidget {
 }
 
 class TransacaoFormScreenState extends State<TransacaoForm> {
-  final TextEditingController valorController = TextEditingController();
+  final TextEditingController valorController = TextEditingController(text: '');
   final formatter = NumberFormat.currency(locale: 'pt_BR', symbol: 'R\$');
 
   final _formKey = GlobalKey<FormState>();
@@ -1159,10 +1159,10 @@ class TransacaoFormScreenState extends State<TransacaoForm> {
     super.initState();
     valorController.addListener(() {
       final text = valorController.text.replaceAll(RegExp(r'[^0-9]'), '');
-      if (text.isEmpty) {
-        valorController.text = '';
-        return;
-      }
+      // if (text.isEmpty) {
+      //   valorController.text = '';
+      //   return;
+      // }
 
       final value = double.parse(text) / 100;
       final newText = formatter.format(value);
@@ -1175,7 +1175,6 @@ class TransacaoFormScreenState extends State<TransacaoForm> {
   }
 
   final TextEditingController descricaoController = TextEditingController();
-  //final TextEditingController valorController = TextEditingController();
   DateTime data = DateTime.now();
   bool entrada = true;
 
@@ -1278,7 +1277,7 @@ class TransacaoFormScreenState extends State<TransacaoForm> {
                 // Campo de Valor
                 TextFormField(
                   controller: valorController,
-                  keyboardType: TextInputType.numberWithOptions(decimal: true),
+                  keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     labelText: "Valor",
                     prefixIcon: Icon(
