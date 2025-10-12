@@ -426,8 +426,8 @@ class ListaScreenState extends State<ListaScreen> {
                           : Colors.blue.withValues(),
                       child: Icon(
                         banco.fisico
-                            ? Icons.account_balance
-                            : Icons.account_balance_wallet,
+                            ? Icons.money_outlined
+                            : Icons.attach_money_outlined,
                         color: Colors.white,
                       ),
                     ),
@@ -921,10 +921,6 @@ class BancoFormScreenState extends State<BancoForm> {
     super.initState();
     saldoController.addListener(() {
       final text = saldoController.text.replaceAll(RegExp(r'[^0-9]'), '');
-      // if (text.isEmpty) {
-      //   saldoController.text = '';
-      //   return;
-      // }
 
       final value = double.parse(text) / 100;
       final newText = formatter.format(value);
@@ -971,9 +967,9 @@ class BancoFormScreenState extends State<BancoForm> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        // Usar um Form para validação profissional
+
         child: Form(
-          key: _formKey, // Associe a chave aqui
+          key: _formKey,
           child: SingleChildScrollView(
             // Permite rolagem se o teclado aparecer
             child: Column(
